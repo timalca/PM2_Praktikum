@@ -7,5 +7,6 @@ package aufgabe1_1;
 
 public class Student
 {
-
+	String vorname, nachname;
+	int matrikelnr;
 }
