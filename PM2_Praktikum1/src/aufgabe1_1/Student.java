@@ -21,6 +21,21 @@ public class Student implements Comparable<Student>, Comparator<String>
 		this.matrikelnr = matrikelnr;
 		leistungen = new ArrayList<Pruefungsleistung>();
 	}
+	
+	public String getVorname()
+	{
+		return vorname;
+	}
+	
+	public String getNachname()
+	{
+		return nachname;
+	}
+	
+	public boolean addLeistung(Pruefungsleistung leistung)
+	{
+		return leistungen.add(leistung);
+	}
 
 	@Override
 	public int hashCode()
