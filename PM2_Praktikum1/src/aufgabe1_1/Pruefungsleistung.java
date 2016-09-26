@@ -7,6 +7,12 @@ package aufgabe1_1;
 
 public class Pruefungsleistung
 {
-	String modulName;
-	int Note;	//1-15 Punkte
+	private String modulName;
+	private int note; // 1-15 Punkte
+
+	public Pruefungsleistung(String modulname, int note)
+	{
+		this.modulName = modulname;
+		this.note = note;
+	}
 }
