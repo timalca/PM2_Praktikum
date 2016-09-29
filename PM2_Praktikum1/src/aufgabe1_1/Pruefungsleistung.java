@@ -15,4 +15,14 @@ public class Pruefungsleistung
 		this.modulName = modulname;
 		this.note = note;
 	}
+	
+	public String getModulName()
+	{
+		return modulName;
+	}
+	
+	public int getNote()
+	{
+		return note;
+	}
 }
