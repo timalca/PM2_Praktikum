@@ -3,7 +3,7 @@
  * @author Johannes Kruber
  * @author Luis Nickel 
  */
-package jUnit;
+package aufgabe1_1.jUnit;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
