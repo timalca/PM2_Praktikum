@@ -1,0 +1,4 @@
+<!ELEMENT Sensor (Messung)*>
+<!ATTLIST Sensor id CDATA #IMPLIED>
+<!ELEMENT Messung EMPTY>
+<!ATTLIST Messung wert CDATA #REQUIRED zeitstempel CDATA #REQUIRED>
