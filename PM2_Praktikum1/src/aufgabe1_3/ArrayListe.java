@@ -27,6 +27,7 @@ public class ArrayListe<T extends Comparable<T>>
 
 	/**
 	 * Gibt das nach comparTo() kleinste Element wieder
+	 * 
 	 * @return kleinstes Element
 	 * @throws ElementException
 	 */
@@ -40,7 +41,7 @@ public class ArrayListe<T extends Comparable<T>>
 		T ele = (T) elemente[0];
 		for (int i = 1; i < anzahlElemente; i++)
 		{
-			if (ele.compareTo((T) elemente[i]) < 0)
+			if (ele.compareTo((T) elemente[i]) > 0)
 			{
 				ele = (T) elemente[i];
 			}
@@ -48,7 +49,7 @@ public class ArrayListe<T extends Comparable<T>>
 
 		return ele;
 	}
-	
+
 	/**
 	 * gibt das Element aus dem Array beim Index zurück
 	 * 
@@ -117,7 +118,6 @@ public class ArrayListe<T extends Comparable<T>>
 		anzahlElemente++;
 	}
 
-
 	/**
 	 * Entfernt ein Element aus der Liste
 	 * 
@@ -133,19 +133,20 @@ public class ArrayListe<T extends Comparable<T>>
 		}
 		entferneElementAnIndex(index);
 	}
-	
+
 	/**
 	 * Entfernt das Element an einem bestimmten Index
+	 * 
 	 * @param index
 	 * @throws ElementException
 	 */
 	public void entferneElementAnIndex(int index) throws ElementException
 	{
-		if(index >= elemente.length || elemente[index] == null)
+		if (index >= elemente.length || elemente[index] == null)
 		{
 			throw new ElementException("no Element at this index");
 		}
-		for (int i = index; i < anzahlElemente; i++)
+		for (int i = index; i < anzahlElemente - 1; i++)
 		{
 			elemente[i] = elemente[i + 1];
 		}
