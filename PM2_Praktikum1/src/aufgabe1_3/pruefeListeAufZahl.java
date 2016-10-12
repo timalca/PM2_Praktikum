@@ -7,6 +7,7 @@ public class pruefeListeAufZahl
 	 * @param list
 	 * @return
 	 */
+	@SuppressWarnings("rawtypes")
 	static public boolean pruefeListe(ArrayListe list)
 	{
 		if (list.getAnzahlElemente() < 1)
