@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 
 public class Messung {
 
-	double wert;
-	LocalDateTime zeitstempel;
+	private double wert;
+	private LocalDateTime zeitstempel;
 	
 	public Messung(double wert,LocalDateTime zeitstempel){
 		this.wert=wert;
@@ -21,11 +21,9 @@ public void setZeitstempel(LocalDateTime zeitstempel){
 	}
 
 public double getWert() {
-	// TODO Auto-generated method stub
 	return wert;
 }
 public LocalDateTime getZeitstempel() {
-	// TODO Auto-generated method stub
 	return zeitstempel;
 }
 }

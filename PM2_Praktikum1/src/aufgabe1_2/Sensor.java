@@ -13,9 +13,7 @@ public class Sensor {
 	
 
 	public Sensor(){
-		
 		messungen = new ArrayList<Messung>();
-		
 	}
 	
 	public void messunghinzufuegen(Messung messung){
@@ -32,17 +30,6 @@ public class Sensor {
 		return (ArrayList<Messung>) messungen;
 	}
 	
-	public void messungAusgeben(){
-		
-		
-	}
-	public static void main(String[]args){
-		XmlSensorEinlesen xmls = new XmlSensorEinlesen("C:/Users/Luis/git/PM2_Praktikum/PM2_Praktikum1/src/aufgabe1_2/beispielSensor.xml");
-		Sensor sensor=new Sensor();
-		sensor=xmls.XmlSensorAusgabe();
-		XmlSensorErstellen sensorXmlerstelle=new XmlSensorErstellen(sensor);
-		
-	}
 
 	public double getWert() {
 		// TODO Auto-generated method stub
