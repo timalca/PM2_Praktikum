@@ -1,6 +1,11 @@
+/**
+ * PMT/PT1 Praktikum Aufgabenblatt 
+ * @author Johannes Kruber
+ * @author Luis Nickel 
+ */
 package aufgabe1_2;
 
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -17,7 +22,10 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-
+/**
+ * Klasse zum erstellen einer Xml-Datei für Sensor-Objekte.
+ *
+ */
 public class XmlSensorErstellen {
 	Document doc;
 	public XmlSensorErstellen() {
@@ -26,7 +34,11 @@ public class XmlSensorErstellen {
 	}
 	
 	
-	
+	/**
+	 * Nimmt einen Sensor und speichert diesen in einer Xml-Datei.
+	 * @param sensor der gespeichert wird
+	 * @param dateiname: Name der Datei.
+	 */
 	public void speicherSensor(Sensor sensor, String dateiname)
 	{
 		try {
@@ -41,7 +53,6 @@ public class XmlSensorErstellen {
 			Iterator<Messung> it = messungen.iterator();
 			while (it.hasNext()) {
 				sensorElement.appendChild(messungsElementHinzufuegen((Messung) (it.next()), doc));
-
 			}
 
 			doc.appendChild(sensorElement);
@@ -50,7 +61,7 @@ public class XmlSensorErstellen {
 			Transformer transformer = transFactory.newTransformer();
 			DOMSource source = new DOMSource(doc);
 			StreamResult streamresult = new StreamResult(
-					"C:/Users/Luis/git/PM2_Praktikum/PM2_Praktikum1/src/aufgabe1_2/" +dateiname+".xml");
+					dateiname+".xml");
 			transformer.transform(source, streamresult);
 		} catch (ParserConfigurationException | TransformerException e) {
 			// TODO Auto-generated catch block
@@ -59,7 +70,13 @@ public class XmlSensorErstellen {
 		}
 	}
 
-	public Element messungsElementHinzufuegen(Messung messung, Document doc) {
+	/**
+	 * Fuecgt dem Document eine Messung hinzu
+	 * @param messung, die dem Document hinzugefuegt werden soll.
+	 * @param doc, Document dem die Messung hinzugefügt wird.
+	 * @return messungElement
+	 */
+	private Element messungsElementHinzufuegen(Messung messung, Document doc) {
 		Element messungElement = doc.createElement("Messung");
 		Attr wertAttribut = doc.createAttribute("wert");
 		Attr zeitstempelAttribut = doc.createAttribute("zeitstempel");

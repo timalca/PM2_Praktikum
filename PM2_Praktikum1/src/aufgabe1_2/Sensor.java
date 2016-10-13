@@ -1,3 +1,8 @@
+/**
+ * PMT/PT1 Praktikum Aufgabenblatt 
+ * @author Johannes Kruber
+ * @author Luis Nickel 
+ */
 package aufgabe1_2;
 
 import java.time.LocalDateTime;

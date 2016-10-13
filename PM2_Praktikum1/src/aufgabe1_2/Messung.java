@@ -1,7 +1,14 @@
+/**
+ * PMT/PT1 Praktikum Aufgabenblatt 
+ * @author Johannes Kruber
+ * @author Luis Nickel 
+ */
 package aufgabe1_2;
 
 import java.time.LocalDateTime;
-
+/**
+ *Diese Klasse repräsentiert Messungen für einen Sensor
+ */
 public class Messung {
 
 	private double wert;
