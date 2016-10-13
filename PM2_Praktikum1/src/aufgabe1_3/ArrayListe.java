@@ -150,6 +150,7 @@ public class ArrayListe<T extends Comparable<T>>
 		{
 			elemente[i] = elemente[i + 1];
 		}
+		elemente[anzahlElemente-1] = null;
 		anzahlElemente--;
 	}
 
