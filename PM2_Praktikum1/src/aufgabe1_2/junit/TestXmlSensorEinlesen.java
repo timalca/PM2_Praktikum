@@ -17,7 +17,7 @@ public class TestXmlSensorEinlesen {
 
 	@Test
 	public void test() {
-		XmlSensorEinlesen reader = new XmlSensorEinlesen("src/beispielSensor.xml");
+		XmlSensorEinlesen reader = new XmlSensorEinlesen("src/aufgabe1_2/beispielSensor.xml");
 		
 		try {
 			Sensor sensor = reader.erstelleSensor();

@@ -20,9 +20,7 @@ public class pruefeListeAufZahl
 			try
 			{
 				Object ele = list.get(0);
-				if (ele instanceof Integer || ele instanceof Double
-						|| ele instanceof Long || ele instanceof Short
-						|| ele instanceof Float)
+				if (ele instanceof Number)
 				{
 					return true;
 				}

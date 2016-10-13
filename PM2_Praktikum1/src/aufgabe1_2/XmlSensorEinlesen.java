@@ -20,7 +20,7 @@ import org.xml.sax.SAXException;
  *
  */
 public class XmlSensorEinlesen {
-	Document document;
+	private Document document;
 	
 	public XmlSensorEinlesen(String dateiname) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -61,7 +61,7 @@ public class XmlSensorEinlesen {
 					}
 				}
 			}
-		return xmlSensor;
+		    return xmlSensor;
 		} else {
 			throw new SensorException("Fehler beim Lesen eines Sensor-Knotens.");
 			

@@ -14,7 +14,7 @@ import aufgabe1_1.Pruefungsleistung;
 
 public class Sensor {
 	private String id;
-	List<Messung> messungen ;
+	private List<Messung> messungen ;
 	
 
 	public Sensor(){
@@ -32,12 +32,12 @@ public class Sensor {
 		return id;
 	}
 	public ArrayList<Messung> getMessungen(){
-		return (ArrayList<Messung>) messungen;
-	}
-	
-
-	public double getWert() {
-		// TODO Auto-generated method stub
-		return 0;
+		ArrayList<Messung> messungen = new ArrayList<Messung>();
+		
+		for(int i=0; i < this.messungen.size(); i++)
+		{
+			messungen.add(this.messungen.get(i));
+		}
+		return messungen;
 	}
 }

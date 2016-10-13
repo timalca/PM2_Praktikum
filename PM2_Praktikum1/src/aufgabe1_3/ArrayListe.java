@@ -84,7 +84,8 @@ public class ArrayListe<T extends Comparable<T>>
 	 * 
 	 * @param ele,
 	 *            gesuchtes element
-	 * @return index des gesuchten elementes im Array
+	 * @return index des gesuchten elementes im Array (wenn vorhanden)
+	 * @return -1 wenn Element nicht vorhanden
 	 */
 	private int sucheElement(T ele)
 	{
@@ -104,12 +105,9 @@ public class ArrayListe<T extends Comparable<T>>
 	 * 
 	 * @param ele
 	 */
-	public void hinzufuegen(T ele) throws ElementException
+	public void hinzufuegen(T ele)
 	{
-		if (sucheElement(ele) != -1)
-		{
-			throw new ElementException("Element already exists");
-		}
+
 		if (anzahlElemente >= elemente.length)
 		{
 			arrayErweitern();
