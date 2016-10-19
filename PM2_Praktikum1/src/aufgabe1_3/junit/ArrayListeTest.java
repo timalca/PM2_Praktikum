@@ -26,15 +26,7 @@ public class ArrayListeTest
 	{
 		for (int i = 0; i < elemente; i++)
 		{
-			try
-			{
-				intListe.hinzufuegen(i);
-			}
-			catch (ElementException e)
-			{
-				e.printStackTrace();
-				fail("ElementException wurde geworfen");
-			}
+			intListe.hinzufuegen(i);
 		}
 		assertEquals(elemente, intListe.getAnzahlElemente());
 	}
@@ -44,15 +36,7 @@ public class ArrayListeTest
 	{
 		for (int i = 0; i < elemente; i++)
 		{
-			try
-			{
-				intListe.hinzufuegen(i);
-			}
-			catch (ElementException e)
-			{
-				//e.printStackTrace();
-				fail("ElementException wurde geworfen: " + e.getMessage());
-			}
+			intListe.hinzufuegen(i);
 		}
 		
 		try
