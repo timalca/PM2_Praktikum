@@ -30,22 +30,27 @@ public class Flughafen extends Thread
 		{
 			if (flugzeuge.size() < maxAnzahlFlugzeuge)
 			{
-				Flugzeug flugzeug =erzeugeFlugzeug((int) (10000 * Math.random()),
-						"Flugzeug " + index);
+				Flugzeug flugzeug = erzeugeFlugzeug(
+						(int) (10000 * Math.random()), "Flugzeug " + index);
 				flugzeug.start();
 				flugzeuge.add(flugzeug);
 			}
-			for(int i =0; i< flugzeuge.size(); i++)
+			for (int i = 0; i < flugzeuge.size(); i++)
 			{
 				Flugzeug flug = flugzeuge.get(i);
 				flug.setZeit((int) (LocalTime.now().toNanoOfDay() / 1000000));
-				if(flug.istGelandet())
+
+				if (flug.istGelandet())
 				{
-					flugzeuge.remove(flug);
-					System.out.println(flug.toString());
+					flugzeuge.remove(i);
+					System.out.println(flug.toString() + "\n");
+				}
+				else
+				{
+					System.out.println(flug.toString() + "\n\n");
 				}
 			}
-			
+
 			try
 			{
 				Thread.sleep(500);
@@ -77,5 +82,12 @@ public class Flughafen extends Thread
 			e.printStackTrace();
 		}
 		flugzeug.gelandet();
+	}
+
+	public static void main(String[] args)
+	{
+		Flughafen hafen = new Flughafen(5);
+		hafen.start();
+
 	}
 }
