@@ -1,3 +1,8 @@
+/**
+ * PM2 Praktikum 
+ * @author Johannes Kruber
+ * @author Luis Nickel 
+ */
 package aufgabe2_2.jUnit;
 
 import static org.junit.Assert.*;
