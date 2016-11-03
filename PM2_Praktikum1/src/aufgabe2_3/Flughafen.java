@@ -43,6 +43,7 @@ public class Flughafen extends Thread
 				if (flug.istGelandet())
 				{
 					flugzeuge.remove(i);
+					flug.interrupt();
 					System.out.println(flug.toString() + "\n");
 				}
 				else
