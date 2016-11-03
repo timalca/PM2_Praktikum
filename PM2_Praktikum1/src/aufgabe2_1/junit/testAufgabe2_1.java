@@ -20,7 +20,7 @@ public class testAufgabe2_1
 	public void testRechner()
 	{
 		Rechner rechner = new Rechner();
-		assertEquals(21, rechner.berechne(Operation.MAL, 3, 7), 0.0000001);
+		assertEquals(21, rechner.berechne(Operation.MAL, 3, 7), 1E-5);
 		assertEquals(3, rechner.berechne(Operation.GETEILT, 21, 7), 0.0000001);
 		assertEquals(-4, rechner.berechne(Operation.MINUS, 3, 7), 0.0000001);
 		assertEquals(10, rechner.berechne(Operation.PLUS, 3, 7), 0.0000001);

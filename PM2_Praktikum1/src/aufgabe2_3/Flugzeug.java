@@ -34,7 +34,7 @@ public class Flugzeug extends Thread
 	}
 	
 	@Override
-	public void run() // not finished
+	public void run()
 	{
 		while (!isInterrupted())
 		{
@@ -54,12 +54,8 @@ public class Flugzeug extends Thread
 	
 	public boolean istGelandet()
 	{
-		if(status == Status.GELANDET)
-		{
-			return true;
-		}
 		
-		return false;
+		return status == Status.GELANDET;
 	}
 	
 	public String toString()

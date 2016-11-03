@@ -24,7 +24,7 @@ public class Flughafen extends Thread
 	}
 
 	@Override
-	public void run() // not finished
+	public void run() 
 	{
 		while (!isInterrupted())
 		{
@@ -79,7 +79,7 @@ public class Flughafen extends Thread
 	}
 
 	/**
-	 * leitet die landung des flugzeuges ein und kontroliert das nur eins zur
+	 * leitet die landung des flugzeuges ein und kontrolliert das nur eins zur
 	 * zeit landen kann
 	 * 
 	 * @param flugzeug
