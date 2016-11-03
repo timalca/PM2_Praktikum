@@ -1,5 +1,5 @@
 /**
- * PMT/PT1 Praktikum Aufgabenblatt 
+ * PM2 Praktikum
  * @author Johannes Kruber
  * @author Luis Nickel 
  */

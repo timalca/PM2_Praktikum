@@ -1,5 +1,5 @@
 /**
- * PMT/PT1 Praktikum Aufgabenblatt 
+ * PM2 Praktikum
  * @author Johannes Kruber
  * @author Luis Nickel 
  */
@@ -63,6 +63,13 @@ public class Flughafen extends Thread
 		}
 	}
 
+	/**
+	 * Erzeugt ein Flugzeug
+	 * 
+	 * @param flugdauer
+	 * @param id
+	 * @return
+	 */
 	private Flugzeug erzeugeFlugzeug(int flugdauer, String id)
 	{
 		index++;
@@ -70,6 +77,12 @@ public class Flughafen extends Thread
 				(int) (LocalTime.now().toNanoOfDay() / 1000000));
 	}
 
+	/**
+	 * leitet die landung des flugzeuges ein und kontroliert das nur eins zur
+	 * zeit landen kann
+	 * 
+	 * @param flugzeug
+	 */
 	public synchronized void landen(Flugzeug flugzeug)
 	{
 		try

@@ -1,5 +1,5 @@
 /**
- * PMT/PT1 Praktikum Aufgabenblatt 
+ * PM2 Praktikum 
  * @author Johannes Kruber
  * @author Luis Nickel 
  */
@@ -23,6 +23,11 @@ public class Flugzeug extends Thread
 		zeit = startzeit;
 	}
 	
+	/**
+	 * setzt die Zeit für das flugzeug
+	 * nötig um aktuelle zeit gemeldet zu bekommen
+	 * @param zeit
+	 */
 	public void setZeit(int zeit)
 	{
 		this.zeit = zeit;
@@ -45,6 +50,7 @@ public class Flugzeug extends Thread
 	{
 		status= Status.GELANDET;
 	}
+	
 	
 	public boolean istGelandet()
 	{
