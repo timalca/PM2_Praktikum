@@ -1,3 +1,8 @@
+/**
+ * PMT/PT1 Praktikum Aufgabenblatt 
+ * @author Johannes Kruber
+ * @author Luis Nickel 
+ */
 package aufgabe1_2.junit;
 
 import static org.junit.Assert.*;
@@ -12,7 +17,7 @@ public class TestXmlSensorEinlesen {
 
 	@Test
 	public void test() {
-		XmlSensorEinlesen reader = new XmlSensorEinlesen("C:/Users/Luis/git/PM2_Praktikum/PM2_Praktikum1/src/aufgabe1_2/beispielSensor.xml");
+		XmlSensorEinlesen reader = new XmlSensorEinlesen("src/beispielSensor.xml");
 		
 		try {
 			Sensor sensor = reader.erstelleSensor();

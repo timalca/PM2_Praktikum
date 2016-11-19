@@ -1,3 +1,8 @@
+/**
+ * PMT/PT1 Praktikum Aufgabenblatt 
+ * @author Johannes Kruber
+ * @author Luis Nickel 
+ */
 package aufgabe1_2;
 
 import java.io.File;
@@ -10,9 +15,13 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
-
+/**
+ * Klasse zum Einlesen einer Xml-Datei für Sensor-Objekte.
+ *
+ */
 public class XmlSensorEinlesen {
 	Document document;
+	
 	public XmlSensorEinlesen(String dateiname) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder;
@@ -24,7 +33,11 @@ public class XmlSensorEinlesen {
 			System.out.println("Fehler beim Einlesen der XML-Datei.");
 		}
 	}
-
+/**
+ * erstellt einen Sensor aus einer Xml-Datei und gibt diesen zurück
+ * @return eingelesenen Sensor
+ * @throws SensorException
+ */
 	public Sensor erstelleSensor()throws SensorException {
 		Element element=document.getDocumentElement();
 		if (element != null && element.getNodeName().equals("Sensor")) {
@@ -55,6 +68,12 @@ public class XmlSensorEinlesen {
 		}
 	}
 
+	/**
+	 * liest die Attribute, der Messung eines Sensors ein
+	 * @param element Messung
+	 * @param xmlSensor Sensor-Objekt dem die Messung zugewiesen wird.
+	 * @return
+	 */
 	private Sensor messungEinlesen(Element element, Sensor xmlSensor) {
 		if (element != null && element.getNodeName().equals("Messung")) {
 
