@@ -1,5 +1,13 @@
+
+/**
+ * PM2 Praktikum  
+ * @author Johannes Kruber
+ * @author Luis Nickel 
+ */
+
 package aufgabe2_1;
 
-public enum Operation {
-ADDITION,SUBTRAKTION,MULTIPLIKATION,DIVISION
+public enum Operation
+{
+	PLUS, MINUS, MAL, GETEILT;
 }

@@ -7,7 +7,7 @@ package aufgabe1_1;
 
 import java.util.*;
 
-public class Student implements Comparable<Student>, Comparator<String>
+public class Student implements Comparable<Student>, Comparator<Student>
 {
 	private String vorname, nachname;
 	private int matrikelnr;
@@ -40,7 +40,8 @@ public class Student implements Comparable<Student>, Comparator<String>
 	@Override
 	public int hashCode()
 	{
-		return matrikelnr;
+		int hash = (matrikelnr / 1000)*13;
+		return hash;
 	}
 
 	@Override
@@ -75,8 +76,12 @@ public class Student implements Comparable<Student>, Comparator<String>
 	}
 
 	@Override
-	public int compare(String o1, String o2)
+	public int compare(Student stud1, Student stud2)
 	{
-		return o1.compareTo(o2);
+		if (stud1.nachname.equals(stud2.nachname)){
+				return stud1.vorname.compareTo(stud2.vorname);
+		}
+		return stud1.nachname.compareTo(stud2.nachname);
+	
 	}
 }

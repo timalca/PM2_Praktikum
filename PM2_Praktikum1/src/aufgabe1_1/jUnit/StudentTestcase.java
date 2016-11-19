@@ -39,10 +39,7 @@ public class StudentTestcase
 	public void compareTest()
 	{
 		System.out.println("compareTest");
-		assertTrue(student1.compare(student1.getNachname(),
-				student2.getNachname()) == 0);
-		assertTrue(student1.compare(student1.getVorname(),
-				student2.getVorname()) > 0);
+		assertNotEquals(0, student1.compare(student1,student2));
 	}
 
 }
