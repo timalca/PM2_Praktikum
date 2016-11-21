@@ -16,7 +16,7 @@ public class Rangierbahnhof extends Observable
 		zuege = new Zug[anzahlGleise];
 	}
 
-	public void einfahren(Zug zug, int gleisnr)
+	public synchronized void einfahren(Zug zug, int gleisnr)
 	{
 		aufZufahrtsGleis();
 		zuege[gleisnr] = zug;
