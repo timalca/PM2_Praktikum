@@ -4,7 +4,7 @@
  * @author Luis Nickel 
  */
 
-package aufgabe2_1.junit;
+package aufgabe2_1.jUnit;
 
 import static org.junit.Assert.*;
 
