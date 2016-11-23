@@ -24,6 +24,10 @@ public class Rangierbahnhof extends Observable
 
 	}
 
+	public int getGleiszahl()
+	{
+		return zuege.length;
+	}
 	public synchronized void einfahren(Zug zug, int gleisnr)
 			throws reservedException
 	{
