@@ -8,14 +8,15 @@ package aufgabe3;
 public class Zug
 {
 	static private int anzahl = 0;
-	
+	private int nummer;
 	public Zug()
 	{
 		anzahl++;
+		nummer = anzahl;
 	}
 	
-	public int getAnzahl()
+	public int getNummer()
 	{
-		return anzahl;
+		return nummer;
 	}
 }
