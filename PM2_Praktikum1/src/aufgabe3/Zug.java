@@ -7,5 +7,15 @@ package aufgabe3;
 
 public class Zug
 {
+	static private int anzahl = 0;
 	
+	public Zug()
+	{
+		anzahl++;
+	}
+	
+	public int getAnzahl()
+	{
+		return anzahl;
+	}
 }
