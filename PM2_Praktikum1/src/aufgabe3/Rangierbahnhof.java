@@ -47,17 +47,16 @@ public class Rangierbahnhof extends Observable
 
 	public synchronized void ausfahren(int gleisnr)throws reservedException
 	{
-		aufZufahrtsGleis();
+		
 		if(!reserved[gleisnr])
 		{
 			throw new reservedException("Empty Gleis");
 		}
-		else{
-		
+		aufZufahrtsGleis();		
 		zuege[gleisnr] = null;
 		setChanged();
 		notifyObservers();
-		}
+		
 	}
 
 	private synchronized void aufZufahrtsGleis()
