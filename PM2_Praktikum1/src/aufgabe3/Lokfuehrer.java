@@ -7,11 +7,11 @@ package aufgabe3;
 
 public class Lokfuehrer extends Thread{
 
-	private double aufgabe;
+	private boolean aufgabe;
 	private Rangierbahnhof bahnhof;
 	private int gleisnummer;
 	
-	public Lokfuehrer(double aufgabe,Rangierbahnhof bahnhof,int gleisnummer){
+	public Lokfuehrer(boolean aufgabe,Rangierbahnhof bahnhof,int gleisnummer){
 		this.aufgabe=aufgabe;
 		this.bahnhof=bahnhof;
 		this.gleisnummer=gleisnummer;
@@ -23,17 +23,34 @@ public class Lokfuehrer extends Thread{
 	
 	private void aufgabeAusfuehren(){
 		Zug zug=new Zug();
-		if(aufgabe<0.5){
-			bahnhof.einfahren(zug, gleisnummer);
+		if(aufgabe){
+			try {
+				bahnhof.einfahren(zug, gleisnummer);
+				System.out.println("Es ist ein Zug auf das "+gleisnummer+" eingefahren");
+			} catch (reservedException e) {
+				e.printStackTrace();
+			}
 			
 		}
 		else {
-			bahnhof.ausfahren(gleisnummer);
+			try {
+				bahnhof.ausfahren(gleisnummer);
+				System.out.println("Der Zug auf das "+gleisnummer+" hat den Bahnhof verlassen");
+			} catch (reservedException e) {
+				e.printStackTrace();
+			}
 			
 		}
 
 	}
-
+	
+	public boolean getAufgabe(){
+		return aufgabe;
+	}
+	
+	public int getGleis(){
+		return gleisnummer;
+	}
 }
 
 
