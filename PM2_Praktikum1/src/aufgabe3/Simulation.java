@@ -11,17 +11,22 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Simulation implements Observer,Runnable  {
+public class Simulation extends Observable implements Observer,Runnable  {
 	
 	private Rangierbahnhof bahnhof;
 	private List<Lokfuehrer> warteschlangeLokfuehrer;
+	public List<Zug> zugliste;
 	
 	
 	public Simulation(Rangierbahnhof bahnhof){
 		this.bahnhof=bahnhof;
 		this.bahnhof.addObserver(this);
 		warteschlangeLokfuehrer=new ArrayList<Lokfuehrer>();
-		
+		zugliste= new ArrayList<Zug>();
+		for(int i=0; i< bahnhof.getGleiszahl(); i++)
+		{
+			zugliste.add(bahnhof.getZug(i));
+		}
 	}
 
 	@Override
@@ -37,7 +42,7 @@ public class Simulation implements Observer,Runnable  {
 			}
 			int gleis=(int)(Math.random()*bahnhof.getGleiszahl());
 			Lokfuehrer lokfuehrer =new Lokfuehrer(aufgabe,bahnhof,gleis);
-			if(istAufgabeMoeglich(aufgabe, gleis)&&!bahnhof.hasChanged()){
+			if(istAufgabeMoeglich(aufgabe, gleis)){
 				lokfuehrer.start();
 			}
 			else{
@@ -56,8 +61,13 @@ public class Simulation implements Observer,Runnable  {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
+		for(int i=0; i< bahnhof.getGleiszahl(); i++)
+		{
+			zugliste.set(i, bahnhof.getZug(i));
+		}
+		setChanged();
+		notifyObservers();
 		pruefeWarteschlange();
-		
 	}
 	
 	private void pruefeWarteschlange(){
@@ -81,7 +91,7 @@ public class Simulation implements Observer,Runnable  {
 		else if(aufgabe && !bahnhof.isReserved(gleis)){
 			return true;	
 		}
-		else if(!aufgabe && bahnhof.isReserved(gleis)){
+		else if(!aufgabe && bahnhof.getZug(gleis) != null){
 			return true;		
 		}
 		else{
@@ -90,10 +100,10 @@ public class Simulation implements Observer,Runnable  {
 		
 	}
 	
-	public static void main(String[] args) {
-	
-		Rangierbahnhof bahnhof=new Rangierbahnhof(10);
-		Simulation sims=new Simulation(bahnhof);
-		sims.run();
-	}
+//	public static void main(String[] args) {
+//	
+//		Rangierbahnhof bahnhof=new Rangierbahnhof(10);
+//		Simulation sims=new Simulation(bahnhof);
+//		sims.run();
+//	}
 }

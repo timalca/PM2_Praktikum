@@ -28,12 +28,31 @@ public class Rangierbahnhof extends Observable
 	{
 		return zuege.length;
 	}
+	
+	public Zug getZug(int index)
+	{
+		return zuege[index];
+	}
+	
 	public synchronized void einfahren(Zug zug, int gleisnr)
 			throws reservedException
-	{
-		if (reserved[gleisnr])
+	{		
+		while (reserved[gleisnr])
 		{
-			throw new reservedException("already reserved");
+			try
+			{
+				wait();
+			}
+			catch (InterruptedException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		if(reserved[gleisnr])
+		{
+			throw new reservedException("reserved");
 		}
 		
 		reserved[gleisnr] = true;
@@ -48,12 +67,25 @@ public class Rangierbahnhof extends Observable
 	public synchronized void ausfahren(int gleisnr)throws reservedException
 	{
 		
-		if(!reserved[gleisnr])
+		while(zuege[gleisnr] == null)
 		{
-			throw new reservedException("Empty Gleis");
+			try
+			{
+				wait();
+			}
+			catch (InterruptedException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		if(zuege[gleisnr] == null)
+		{
+			throw new reservedException("empty");
 		}
 		aufZufahrtsGleis();		
 		zuege[gleisnr] = null;
+		reserved[gleisnr]= false;
 		setChanged();
 		notifyObservers();
 		
@@ -72,11 +104,6 @@ public class Rangierbahnhof extends Observable
 		}
 	}
 
-	public Zug getZug(int gleisnr)
-	{
-		return zuege[gleisnr];
-	}
-	
 	public boolean isReserved(int gleisNummer){
 		return reserved[gleisNummer];
 	}
