@@ -37,11 +37,11 @@ public class Simulation implements Observer,Runnable  {
 			}
 			int gleis=(int)(Math.random()*bahnhof.getGleiszahl());
 			Lokfuehrer lokfuehrer =new Lokfuehrer(aufgabe,bahnhof,gleis);
-			if(istAufgabeMoeglich(aufgabe, gleis)){
+			if(istAufgabeMoeglich(aufgabe, gleis)&&!bahnhof.hasChanged()){
 				lokfuehrer.start();
 			}
 			else{
-				
+				System.out.println(" setztWarteListe Gleis "+lokfuehrer.getGleis()+" Aufgabe:"+lokfuehrer.getAufgabe());
 				warteschlangeLokfuehrer.add(lokfuehrer);		
 			}
 			
@@ -60,12 +60,16 @@ public class Simulation implements Observer,Runnable  {
 		
 	}
 	
-	private synchronized void pruefeWarteschlange(){
+	private void pruefeWarteschlange(){
+		
 		for(Iterator<Lokfuehrer> it=warteschlangeLokfuehrer.iterator();it.hasNext();){
 			Lokfuehrer lokfuehrer=it.next();
 			if(istAufgabeMoeglich(lokfuehrer.getAufgabe(),lokfuehrer.getGleis())){
-				lokfuehrer.start();
+				System.out.println(" entfernt"+lokfuehrer.getGleis()+" Aufgabe:"+lokfuehrer.getAufgabe());
 				warteschlangeLokfuehrer.remove(lokfuehrer);
+				lokfuehrer.start();
+				break;
+				
 			}
 		}
 	}

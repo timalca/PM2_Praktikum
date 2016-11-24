@@ -35,7 +35,7 @@ public class Lokfuehrer extends Thread{
 		else {
 			try {
 				bahnhof.ausfahren(gleisnummer);
-				System.out.println("Der Zug auf das "+gleisnummer+" hat den Bahnhof verlassen");
+				System.out.println("Der Zug auf dem "+gleisnummer+". Gleis hat den Bahnhof verlassen");
 			} catch (reservedException e) {
 				e.printStackTrace();
 			}
