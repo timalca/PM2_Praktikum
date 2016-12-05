@@ -3,18 +3,18 @@
  * Hochschule für Angewandte Wissenschaften (HAW), Hamburg
  * Lecture demo program.
  */
-package aufgabe4;
+package braitenberg;
 
+import braitenberg.braitenbergvehikel.BVBewegungAbstossung;
+import braitenberg.braitenbergvehikel.BVBewegungAttraktion;
+import braitenberg.braitenbergvehikel.BVSimulation;
+import braitenberg.braitenbergvehikel.BraitenbergVehikel;
+import braitenberg.braitenbergvehikel.Vektor2;
+import braitenberg.view.BVCanvas;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import aufgabe4.braitenberg.braitenbergvehikel.BVBewegungAbstossung;
-import aufgabe4.braitenberg.braitenbergvehikel.BVBewegungAttraktion;
-import aufgabe4.braitenberg.braitenbergvehikel.BVSimulation;
-import aufgabe4.braitenberg.braitenbergvehikel.BraitenbergVehikel;
-import aufgabe4.braitenberg.braitenbergvehikel.Vektor2;
-import aufgabe4.braitenberg.view.BVCanvas;
 
 /**
  * JavaFX Anwendung zur Darstellung und Interaktion mit einer
@@ -58,6 +58,6 @@ public class BVAnwendung extends Application {
   }
 
   public static void main(String[] args) {
-    launch(args);
-  }
+	    launch(args);
+	  }
 }

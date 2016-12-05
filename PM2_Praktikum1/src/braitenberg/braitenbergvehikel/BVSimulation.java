@@ -1,9 +1,9 @@
-package aufgabe4.braitenberg.braitenbergvehikel;
+package braitenberg.braitenbergvehikel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import aufgabe4.braitenberg.braitenbergvehikel.BraitenbergVehikel.Richtung;
+import braitenberg.braitenbergvehikel.BraitenbergVehikel.Richtung;
 
 /**
  * Simulation von Braitenberg-Vehikeln.

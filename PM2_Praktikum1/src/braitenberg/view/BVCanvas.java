@@ -1,18 +1,18 @@
-package aufgabe4.braitenberg.view;
+package braitenberg.view;
 
 import java.awt.Point;
 import java.util.Observable;
 import java.util.Observer;
 
+import braitenberg.braitenbergvehikel.BVSimulation;
+import braitenberg.braitenbergvehikel.BraitenbergVehikel;
+import braitenberg.braitenbergvehikel.Vektor2;
 import javafx.application.Platform;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.transform.Rotate;
-import aufgabe4.braitenberg.braitenbergvehikel.BVSimulation;
-import aufgabe4.braitenberg.braitenbergvehikel.BraitenbergVehikel;
-import aufgabe4.braitenberg.braitenbergvehikel.Vektor2;
 
 /**
  * Zeichenfläche für eine Braitenberg-Vehikle-Simulation.

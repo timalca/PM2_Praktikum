@@ -1,4 +1,4 @@
-package aufgabe4.braitenberg.braitenbergvehikel;
+package braitenberg.braitenbergvehikel;
 
 /**
  * Repräsentiert einen Vektor in 2D.

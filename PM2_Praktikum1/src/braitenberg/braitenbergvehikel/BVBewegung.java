@@ -1,4 +1,4 @@
-package aufgabe4.braitenberg.braitenbergvehikel;
+package braitenberg.braitenbergvehikel;
 
 /**
  * Berechnet aus Sensoren und Motorfunktionen die Ansteuerung der beiden

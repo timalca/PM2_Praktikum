@@ -1,4 +1,4 @@
-package aufgabe4.braitenberg.braitenbergvehikel;
+package braitenberg.braitenbergvehikel;
 
 /**
  * Ein Braitenberg-Vehikel "fühlt" zwei Sensorwerte und steuert darauf basierend

@@ -1,24 +1,23 @@
-package aufgabe4.braitenberg.braitenbergvehikel;
+package braitenberg.braitenbergvehikel;
 
 /**
- * Abstossung von dem Signal.
+ * Attraktion hin zum Signal.
  * 
  * @author Philipp Jenke
  */
-public class BVBewegungAbstossung implements BVBewegung {
-
-  public static final String ID = "ABSTOSSUNG";
+public class BVBewegungAttraktion implements BVBewegung {
+  public static final String ID = "ATTRAKTION";
 
   @Override
   public double berechneMotorAnsteuerungLinks(double sensorWertLinks,
       double sensorWertRechts) {
-    return sensorWertLinks;
+    return sensorWertRechts * sensorWertRechts;
   }
 
   @Override
   public double berechneMotorAnsteuerungRechts(double sensorWertLinks,
       double sensorWertRechts) {
-    return sensorWertRechts;
+    return sensorWertLinks * sensorWertLinks;
   }
 
   @Override
