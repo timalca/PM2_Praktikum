@@ -87,6 +87,7 @@ public class BraitenbergVehikel extends Observable {
     double motorBewegungRechts =
         umdrehungenRechts * Math.PI * getRadRadius() * 2.0;
     bewege(motorBewegungLinks, motorBewegungRechts);
+    notifyObservers();
   }
 
   /**
@@ -149,7 +150,6 @@ public class BraitenbergVehikel extends Observable {
       orientierung = orientierung.rotiere(winkelBogenmass);
       orientierung.normieren();
     }
-    notifyObservers();
   }
 
   /**
