@@ -1,14 +1,12 @@
 package braitenberg.braitenbergvehikel;
 
-import java.util.Observable;
-
 /**
  * Ein Braitenberg-Vehikel "fühlt" zwei Sensorwerte und steuert darauf basierend
  * zwei Motoren an.
  * 
  * @author Philipp Jenke
  */
-public class BraitenbergVehikel extends Observable {
+public class BraitenbergVehikel{
 
   /**
    * Richtungs-Enum für Motoren und Sensoren.
@@ -87,7 +85,6 @@ public class BraitenbergVehikel extends Observable {
     double motorBewegungRechts =
         umdrehungenRechts * Math.PI * getRadRadius() * 2.0;
     bewege(motorBewegungLinks, motorBewegungRechts);
-    notifyObservers();
   }
 
   /**

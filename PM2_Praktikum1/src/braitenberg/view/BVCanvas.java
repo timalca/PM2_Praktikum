@@ -36,9 +36,11 @@ public class BVCanvas extends Canvas implements Observer {
   public BVCanvas(int breite, int hoehe, BVSimulation sim) {
     super(breite, hoehe);
     this.sim = sim;
-    for(int i=0;i<sim.getAnzahlVehike();i++){
-    	sim.getVehikel(i).addObserver(this);
-    }
+    
+    this.sim.addObserver(this);
+//    for(int i=0;i<sim.getAnzahlVehike();i++){
+//    	sim.getVehikel(i).addObserver(this);
+//    }
   }
 
   /**
@@ -116,10 +118,12 @@ public class BVCanvas extends Canvas implements Observer {
   @Override
   public void update(Observable o, Object arg) {
     // Zeichenroutine wird im JavaFX-Thread aufgerufen.
+	System.out.println("observer");
     Platform.runLater(new Runnable() {
       @Override
       public void run() {
-        zeichneSimulation();
+    	  
+    	  zeichneSimulation();
       }
     });
   }

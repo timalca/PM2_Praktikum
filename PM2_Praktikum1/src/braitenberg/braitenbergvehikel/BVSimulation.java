@@ -2,6 +2,7 @@ package braitenberg.braitenbergvehikel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 import braitenberg.braitenbergvehikel.BraitenbergVehikel.Richtung;
 
@@ -10,7 +11,7 @@ import braitenberg.braitenbergvehikel.BraitenbergVehikel.Richtung;
  * 
  * @author Philipp Jenke
  */
-public class BVSimulation
+public class BVSimulation extends Observable
 {
 
 	private class SimThread extends Thread
@@ -29,6 +30,7 @@ public class BVSimulation
 				{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+					interrupt();
 				}
 			}
 		}
@@ -49,7 +51,7 @@ public class BVSimulation
 
 	public BVSimulation()
 	{
-		simThread = new SimThread();
+		
 	}
 
 	/**
@@ -70,6 +72,9 @@ public class BVSimulation
 			// Bewege vehikel
 			vehikel.bewege();
 		}
+		System.out.println("notify");
+		setChanged();
+		notifyObservers();
 	}
 
 	/**
@@ -119,6 +124,7 @@ public class BVSimulation
 	
 	public void starteThread()
 	{
+		simThread = new SimThread();
 		simThread.start();
 	}
 	
