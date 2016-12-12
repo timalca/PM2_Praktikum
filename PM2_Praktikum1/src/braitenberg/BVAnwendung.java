@@ -13,7 +13,10 @@ import braitenberg.braitenbergvehikel.Vektor2;
 import braitenberg.view.BVCanvas;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 /**
@@ -38,6 +41,15 @@ public class BVAnwendung extends Application {
     primaryStage.setTitle("Braitenberg-Vehikel!");
     BorderPane wurzel = new BorderPane();
     wurzel.setCenter(canvas);
+    CheckBox checkbox = new CheckBox();
+    checkbox.setText("Simuliere!");
+    Button button = new Button();
+    button.setText("Simuliere");
+    GridPane grid = new GridPane();
+    grid.add(button, 0, 0);
+    grid.add(checkbox, 0, 1);
+    wurzel.setLeft(grid);
+    
 
     primaryStage.setScene(new Scene(wurzel, 850, 600));
     primaryStage.show();
