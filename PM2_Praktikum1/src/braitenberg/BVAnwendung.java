@@ -34,6 +34,12 @@ import javafx.stage.Stage;
 public class BVAnwendung extends Application
 {
 
+	/**
+	 * fügt ein Combobox hinzu
+	 * 
+	 * @param cBox
+	 * @param vehikel
+	 */
 	public void addCombobox(ComboBox<String> cBox, BraitenbergVehikel vehikel)
 	{
 		cBox.setOnAction(new EventHandler<ActionEvent>()
@@ -159,11 +165,11 @@ public class BVAnwendung extends Application
 		BraitenbergVehikel vehikel2 = new BraitenbergVehikel("Mike",
 				new BVBewegungAbstossung(), new Vektor2(-100, 100),
 				new Vektor2(1, 0));
-		
+
 		BraitenbergVehikel vehikel3 = new BraitenbergVehikel("Luis",
 				new BVBewegungAbstossung(), new Vektor2(-150, 150),
 				new Vektor2(1.5, -0.5));
-		
+
 		BVSimulation sim = new BVSimulation();
 		sim.vehikelHinzufuegen(vehikel1);
 		sim.vehikelHinzufuegen(vehikel2);
@@ -171,15 +177,10 @@ public class BVAnwendung extends Application
 		return sim;
 	}
 
-	// @Override
-	// public void handle(ActionEvent event)
-	// {
-	// System.out.println("EVENT!!!!");
-	// }
-	//
-	// public static void main(String[] args)
-	// {
-	// launch(args);
-	// }
+	public static void main(String[] args)
+	{
+		launch(args);
+
+	}
 
 }

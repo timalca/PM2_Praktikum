@@ -14,12 +14,15 @@ import braitenberg.braitenbergvehikel.BraitenbergVehikel.Richtung;
 public class BVSimulation extends Observable
 {
 
+	/**
+	 * Thread klasse für den simulations thread
+	 */
 	private class SimThread extends Thread
 	{
 		@Override
 		public void run()
 		{
-			while(!isInterrupted())
+			while (!isInterrupted())
 			{
 				simulationsSchritt();
 				try
@@ -51,7 +54,7 @@ public class BVSimulation extends Observable
 
 	public BVSimulation()
 	{
-		
+
 	}
 
 	/**
@@ -123,13 +126,13 @@ public class BVSimulation extends Observable
 		setChanged();
 		notifyObservers();
 	}
-	
+
 	public void starteThread()
 	{
 		simThread = new SimThread();
 		simThread.start();
 	}
-	
+
 	public void beendeThread()
 	{
 		simThread.interrupt();
