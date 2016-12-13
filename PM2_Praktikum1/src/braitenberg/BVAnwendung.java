@@ -32,26 +32,20 @@ import javafx.stage.Stage;
  */
 public class BVAnwendung extends Application
 {
-	private class AddCombobox 
-	{
-		public AddCombobox(ComboBox<String> cBox,BraitenbergVehikel vehikel){
-			cBox.setOnAction(new EventHandler<ActionEvent>(){
-				
-				@Override
-				public void handle(ActionEvent arg0) {
-				
-					if(cBox.getValue()=="ABSTOSSUNG"){
-						vehikel.setBewegung(new BVBewegungAbstossung());
-					}
-					else{
-						vehikel.setBewegung(new BVBewegungAttraktion());
-					}
+	
+	public void addCombobox(ComboBox<String> cBox,BraitenbergVehikel vehikel){
+		cBox.setOnAction(new EventHandler<ActionEvent>(){
+			@Override
+			public void handle(ActionEvent arg0) {
+				if(cBox.getValue()=="ABSTOSSUNG"){
+					vehikel.setBewegung(new BVBewegungAbstossung());
 				}
-				
-			});
-		}
-
-	};
+				else{
+					vehikel.setBewegung(new BVBewegungAttraktion());
+				}
+			}	
+		});
+	}
 
 	@Override
 	public void start(Stage primaryStage)
@@ -86,7 +80,7 @@ public class BVAnwendung extends Application
 			}else{
 				bewegungCombobox.setValue("ATTRAKTION");
 			}
-			AddCombobox addCBox=new AddCombobox(bewegungCombobox, sim.getVehikel(i));
+			addCombobox(bewegungCombobox, sim.getVehikel(i));
 		}
 		
 		simulationGrid.add(button, 0, 0);
