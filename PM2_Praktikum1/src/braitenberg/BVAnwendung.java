@@ -159,9 +159,15 @@ public class BVAnwendung extends Application
 		BraitenbergVehikel vehikel2 = new BraitenbergVehikel("Mike",
 				new BVBewegungAbstossung(), new Vektor2(-100, 100),
 				new Vektor2(1, 0));
+		
+		BraitenbergVehikel vehikel3 = new BraitenbergVehikel("Luis",
+				new BVBewegungAbstossung(), new Vektor2(-150, 150),
+				new Vektor2(1.5, -0.5));
+		
 		BVSimulation sim = new BVSimulation();
 		sim.vehikelHinzufuegen(vehikel1);
 		sim.vehikelHinzufuegen(vehikel2);
+		sim.vehikelHinzufuegen(vehikel3);
 		return sim;
 	}
 
