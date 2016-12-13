@@ -20,6 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -32,18 +33,23 @@ import javafx.stage.Stage;
  */
 public class BVAnwendung extends Application
 {
-	
-	public void addCombobox(ComboBox<String> cBox,BraitenbergVehikel vehikel){
-		cBox.setOnAction(new EventHandler<ActionEvent>(){
+
+	public void addCombobox(ComboBox<String> cBox, BraitenbergVehikel vehikel)
+	{
+		cBox.setOnAction(new EventHandler<ActionEvent>()
+		{
 			@Override
-			public void handle(ActionEvent arg0) {
-				if(cBox.getValue()=="ABSTOSSUNG"){
+			public void handle(ActionEvent arg0)
+			{
+				if (cBox.getValue() == "ABSTOSSUNG")
+				{
 					vehikel.setBewegung(new BVBewegungAbstossung());
 				}
-				else{
+				else
+				{
 					vehikel.setBewegung(new BVBewegungAttraktion());
 				}
-			}	
+			}
 		});
 	}
 
@@ -56,6 +62,20 @@ public class BVAnwendung extends Application
 		// Canvas setzen
 		BVCanvas canvas = new BVCanvas(600, 600, sim);
 
+		canvas.setOnMouseClicked(new EventHandler<MouseEvent>()
+		{
+
+			@Override
+			public void handle(MouseEvent event)
+			{
+				double x = event.getX() - canvas.getWidth() / 2;
+				double y = -(event.getY() - canvas.getHeight() / 2);
+
+				sim.setSignal(x, y);
+			}
+
+		});
+
 		canvas.zeichneSimulation();
 
 		// Szenengraph aufbauen
@@ -67,27 +87,32 @@ public class BVAnwendung extends Application
 		Button button = new Button();
 		button.setText("Simuliere");
 		GridPane simulationGrid = new GridPane();
-		GridPane bewegungsGrid =new GridPane();
-		
-		ObservableList<String> bewegungsList =FXCollections.observableArrayList("ATTRAKTION","ABSTOSSUNG");
-		for(int i=0;i<sim.getAnzahlVehike();i++){
-			ComboBox<String> bewegungCombobox=new ComboBox<String>(bewegungsList);
-			Label vehikelName=new Label(sim.getVehikel(i).getName());
-			bewegungsGrid.add(vehikelName,0,i);
-			bewegungsGrid.add(bewegungCombobox,1, i);
-			if(sim.getVehikel(i).getBewegung() instanceof BVBewegungAbstossung){
+		GridPane bewegungsGrid = new GridPane();
+
+		ObservableList<String> bewegungsList = FXCollections
+				.observableArrayList("ATTRAKTION", "ABSTOSSUNG");
+		for (int i = 0; i < sim.getAnzahlVehike(); i++)
+		{
+			ComboBox<String> bewegungCombobox = new ComboBox<String>(
+					bewegungsList);
+			Label vehikelName = new Label(sim.getVehikel(i).getName());
+			bewegungsGrid.add(vehikelName, 0, i);
+			bewegungsGrid.add(bewegungCombobox, 1, i);
+			if (sim.getVehikel(i).getBewegung() instanceof BVBewegungAbstossung)
+			{
 				bewegungCombobox.setValue("ABSTOSSUNG");
-			}else{
+			}
+			else
+			{
 				bewegungCombobox.setValue("ATTRAKTION");
 			}
 			addCombobox(bewegungCombobox, sim.getVehikel(i));
 		}
-		
+
 		simulationGrid.add(button, 0, 0);
 		simulationGrid.add(checkbox, 0, 1);
 		wurzel.setLeft(simulationGrid);
 		wurzel.setRight(bewegungsGrid);
-		
 
 		button.setOnAction(new EventHandler<ActionEvent>()
 		{
@@ -110,7 +135,7 @@ public class BVAnwendung extends Application
 				{
 					System.out.println("Selected");
 					sim.starteThread();
-					
+
 				}
 				else
 				{

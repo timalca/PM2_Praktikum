@@ -120,6 +120,8 @@ public class BVSimulation extends Observable
 	public void setSignal(double x, double y)
 	{
 		signal = new Vektor2(x, y);
+		setChanged();
+		notifyObservers();
 	}
 	
 	public void starteThread()
