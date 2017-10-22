@@ -8,14 +8,14 @@ package aufgabe1_3;
 public class pruefeListeAufZahl
 {
 	/**
-	 * Prüft ob das erste Element einer ArrayListe eine Zahl ist
+	 * PrÃ¼ft ob das erste Element einer ArrayListe eine Zahl ist
 	 * @param list
 	 * @return
 	 */
 	@SuppressWarnings("rawtypes")
 	static public boolean pruefeListe(ArrayListe list)
 	{
-		if (list.getAnzahlElemente() < 1)
+		if (list.getAnzahlElemente() >= 1)
 		{
 			try
 			{
